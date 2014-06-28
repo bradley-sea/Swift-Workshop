@@ -9,14 +9,34 @@
 import UIKit
 
 class OptionalsViewController: UIViewController {
-
-    init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
-        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-        // Custom initialization
-    }
+    
+    //1 basic optional property
+    var personView : UIImageView?
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //self.personView = UIImageView(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
+        //implicit unwrap
+        //self.personView!.center = CGPoint(x: 20, y: 20)
+        
+        //2 optional binding
+        if let view = self.personView {
+            //do something with view
+//            view.center = CGPoint(x: 20, y: 20) //no unwrapping, optional binding unwraps it for you in the constant
+        } else {
+            //self.personView was nil
+        }
+        
+        //3 optional chaining - can also call functions with optional chaining (just dont use let)
+        
+        if let parentView = self.personView?.superview {
+            //view has a superView
+        }
+        else {
+            //view has no superview
+        }
+        
 
         // Do any additional setup after loading the view.
     }
